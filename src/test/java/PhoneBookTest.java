@@ -51,9 +51,12 @@ public class PhoneBookTest {
     @Test
     public void findByName(){
         PhoneBook phoneBook = new PhoneBook();
+        String number = "+7(903)123-45-67";
+        String name = "Petya";
+        phoneBook.add(name, number);
 
-        String number = phoneBook.findByName("Petya");
+        String resNumber = phoneBook.findByName("Petya");
 
-        assertEquals("+7(903)123-45-67", number);
+        assertEquals(number, resNumber);
     }
 }
