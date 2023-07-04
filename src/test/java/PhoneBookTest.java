@@ -2,6 +2,7 @@ import org.junit.Test;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -49,7 +50,7 @@ public class PhoneBookTest {
     }
 
     @Test
-    public void findByName(){
+    public void testFindByName(){
         PhoneBook phoneBook = new PhoneBook();
         String number = "+7(903)123-45-67";
         String name = "Petya";
@@ -58,5 +59,23 @@ public class PhoneBookTest {
         String resNumber = phoneBook.findByName("Petya");
 
         assertEquals(number, resNumber);
+    }
+
+    @Test
+    public void testPrintAllNames(){
+        PhoneBook phoneBook = new PhoneBook();
+        String number = "+7(903)123-45-67";
+        String name = "Petya";
+        String number2 = "+7(903)123-45-88";
+        String name2 = "Vasya";
+        Set<String> expNames = new TreeSet<>();
+        expNames.add(name);
+        expNames.add(name2);
+        phoneBook.add(name, number);
+        phoneBook.add(name2, number2);
+
+        Set<String> resNames = phoneBook.printAllNames();
+
+        assertEquals(expNames, resNames);
     }
 }

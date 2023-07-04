@@ -1,12 +1,9 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class PhoneBook {
 
-    public static final Map<String, String> phonebook = new HashMap<>();
+    public static final Map<String, String> phonebook = new TreeMap<>();
     public int add(String name, String number){
         if (!phonebook.containsKey(name)) {
             phonebook.put(name, number);
@@ -28,5 +25,9 @@ public class PhoneBook {
 
     public String findByName(String name){
         return phonebook.get(name);
+    }
+
+    public Set<String> printAllNames(){
+        return null;
     }
 }
