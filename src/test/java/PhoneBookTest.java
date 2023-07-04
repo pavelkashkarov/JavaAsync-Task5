@@ -1,5 +1,8 @@
 import org.junit.Test;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class PhoneBookTest {
@@ -33,11 +36,15 @@ public class PhoneBookTest {
 
     @Test
     public void testFindByNumber(){
-        PhoneBook phonebook = new PhoneBook();
+        PhoneBook phoneBook = new PhoneBook();
+        String number = "+7(903)123-45-67";
         String name = "Petya";
+        phoneBook.add(name, number);
+        Set<String> names = new HashSet<>();
+        names.add("Petya");
 
-        String searchName = phonebook.findByNumber("+7(903)123-45-67");
+        Set<String> searchName = phoneBook.findByNumber("+7(903)123-45-67");
 
-        assertEquals(name, searchName);
+        assertEquals(names, searchName);
     }
 }

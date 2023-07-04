@@ -1,5 +1,8 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class PhoneBook {
 
@@ -14,7 +17,12 @@ public class PhoneBook {
         return phonebook.size();
     }
 
-    public String findByNumber(String number){
-        return null;
+    public Set<String> findByNumber(String number){
+        return phonebook
+                .entrySet()
+                .stream()
+                .filter(entry -> Objects.equals(entry.getValue(), number))
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toSet());
     }
 }
