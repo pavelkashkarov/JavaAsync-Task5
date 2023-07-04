@@ -11,11 +11,11 @@ public class PhoneBookTest {
     public void testAdd(){
         String number = "+7(903)123-45-88";
         String name = "Vasya";
-        PhoneBook phoneBook = new PhoneBook();
+        PhoneBook phonebook = new PhoneBook();
 
-        int counter = phoneBook.add(name, number);
+        int counter = phonebook.add(name, number);
 
-        assertEquals(1, counter);
+        assertEquals(2, counter);
 
     }
 
@@ -46,5 +46,14 @@ public class PhoneBookTest {
         Set<String> searchName = phoneBook.findByNumber("+7(903)123-45-67");
 
         assertEquals(names, searchName);
+    }
+
+    @Test
+    public void findByName(){
+        PhoneBook phoneBook = new PhoneBook();
+
+        String number = phoneBook.findByName("Petya");
+
+        assertEquals("+7(903)123-45-67", number);
     }
 }
