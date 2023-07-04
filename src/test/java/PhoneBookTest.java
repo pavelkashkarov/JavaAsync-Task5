@@ -6,12 +6,28 @@ public class PhoneBookTest {
 
     @Test
     public void testAdd(){
-        int numbersCount = 1;
+        String number = "+7(903)123-45-88";
+        String name = "Vasya";
         PhoneBook phoneBook = new PhoneBook();
 
-        int counter = phoneBook.add();
+        int counter = phoneBook.add(name, number);
 
-        assertEquals(numbersCount, counter);
+        assertEquals(1, counter);
+
+    }
+
+    @Test
+    public void testSameNameAdd(){
+        String number = "+7(903)123-45-67";
+        String name = "Petya";
+        String number2 = "+7(903)123-45-77";
+        String name2 = "Petya";
+        PhoneBook phoneBook = new PhoneBook();
+
+        int counter = phoneBook.add(name, number);
+        int counter2 = phoneBook.add(name2, number2);
+
+        assertEquals(counter, counter2);
 
     }
 }
